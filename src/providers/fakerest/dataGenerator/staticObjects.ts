@@ -1,3 +1,10 @@
+/*
+included data:
+8 contacts
+5 companies
+8 tasks
+10 deals
+*/
 export const staticContacts = [
     {
         first_name: 'John',
@@ -134,4 +141,28 @@ export const staticCompanies = [
         country: "USA",
         description: "Next-gen networking and cybersecurity solutions."
     }
+];
+
+export const staticTasks = [
+    { text: 'Follow up with client about contract details' },
+    { text: 'Send product demo invitation email' },
+    { text: 'Schedule a call with potential partner' },
+    { text: 'Review and finalize marketing strategy document' },
+    { text: 'Prepare sales report for Q1' },
+    { text: 'Organize team lunch for project kickoff' },
+    { text: 'Send thank-you email to new customers' },
+    { text: 'Ship promotional materials to conference venue' },
+];
+
+export const staticDeals = [
+    { lowercaseName: 'website redesign', description: 'Redesign the company website to improve user experience and increase conversions.' },
+    { lowercaseName: 'enterprise software integration', description: 'Integrate our software solution with the client’s enterprise system for better data synchronization.' },
+    { lowercaseName: 'customer loyalty program', description: 'Develop a loyalty program to enhance customer retention and engagement.' },
+    { lowercaseName: 'marketing automation setup', description: 'Implement automation tools to streamline marketing campaigns and increase efficiency.' },
+    { lowercaseName: 'supply chain optimization', description: 'Analyze and improve supply chain processes to reduce costs and enhance delivery times.' },
+    { lowercaseName: 'B2B partnership deal', description: 'Establish a strategic partnership with another company to expand market reach.' },
+    { lowercaseName: 'product launch campaign', description: 'Plan and execute a marketing campaign for the launch of a new product.' },
+    { lowercaseName: 'mobile app development', description: 'Develop a mobile application to complement our web platform and increase accessibility.' },
+    { lowercaseName: 'corporate training package', description: 'Provide a customized corporate training package for employee upskilling.' },
+    { lowercaseName: 'international expansion strategy', description: 'Develop a strategy to enter new international markets and increase global presence.' },
 ];

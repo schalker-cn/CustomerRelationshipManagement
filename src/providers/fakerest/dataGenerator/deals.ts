@@ -1,6 +1,6 @@
 import { add } from 'date-fns';
 import { lorem, random } from 'faker/locale/en_US';
-
+import { staticDeals } from './staticObjects';
 import {
     defaultDealCategories,
     defaultDealStages,
@@ -10,14 +10,14 @@ import { Db } from './types';
 import { randomDate } from './utils';
 
 export const generateDeals = (db: Db): Deal[] => {
-    const deals = Array.from(Array(50).keys()).map(id => {
+    const deals = staticDeals.map((deal, id) => {
         const company = random.arrayElement(db.companies);
         company.nb_deals++;
         const contacts = random.arrayElements(
             db.contacts.filter(contact => contact.company_id === company.id),
             random.number({ min: 1, max: 3 })
         );
-        const lowercaseName = lorem.words();
+        const lowercaseName = deal.lowercaseName;
         const created_at = randomDate(
             new Date(company.created_at)
         ).toISOString();
@@ -34,7 +34,7 @@ export const generateDeals = (db: Db): Deal[] => {
             contact_ids: contacts.map(contact => contact.id),
             category: random.arrayElement(defaultDealCategories),
             stage: random.arrayElement(defaultDealStages).value,
-            description: lorem.paragraphs(random.number({ min: 1, max: 4 })),
+            description: deal.description,
             amount: random.number(1000) * 100,
             created_at,
             updated_at: randomDate(new Date(created_at)).toISOString(),

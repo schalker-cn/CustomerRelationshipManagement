@@ -1,9 +1,8 @@
-import { lorem, random } from 'faker/locale/en_US';
-
+import { random } from 'faker/locale/en_US';
 import { defaultTaskTypes } from '../../../root/defaultConfiguration';
-import { Task } from '../../../types';
 import { Db } from './types';
 import { randomDate } from './utils';
+import { staticTasks } from './staticObjects';
 
 type TaskType = (typeof defaultTaskTypes)[number];
 
@@ -36,14 +35,14 @@ export const type: TaskType[] = [
 ];
 
 export const generateTasks = (db: Db) => {
-    return Array.from(Array(400).keys()).map<Task>(id => {
+    return staticTasks.map((task, id) => {
         const contact = random.arrayElement(db.contacts);
         contact.nb_tasks++;
         return {
             id,
             contact_id: contact.id,
             type: random.arrayElement(defaultTaskTypes),
-            text: lorem.sentence(),
+            text: task.text,
             due_date: randomDate(
                 random.boolean() ? new Date() : new Date(contact.first_seen),
                 new Date(Date.now() + 100 * 24 * 60 * 60 * 1000)
@@ -51,5 +50,5 @@ export const generateTasks = (db: Db) => {
             done_date: undefined,
             sales_id: 0,
         };
-    });
-};
+    })
+}

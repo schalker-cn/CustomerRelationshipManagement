@@ -49,4 +49,3 @@ export const generateContacts = (db: Db): Required<Contact>[] => {
         };
     });
 };
-
