@@ -4,6 +4,8 @@ included data:
 5 companies
 8 tasks
 10 deals
+10 contact notes
+10 deal notes
 */
 export const staticContacts = [
     {
@@ -165,4 +167,30 @@ export const staticDeals = [
     { lowercaseName: 'mobile app development', description: 'Develop a mobile application to complement our web platform and increase accessibility.' },
     { lowercaseName: 'corporate training package', description: 'Provide a customized corporate training package for employee upskilling.' },
     { lowercaseName: 'international expansion strategy', description: 'Develop a strategy to enter new international markets and increase global presence.' },
+];
+
+export const staticContactNotes = [
+    { text: 'Discussed potential collaboration opportunities with the client.' },
+    { text: 'Client mentioned interest in upgrading their current subscription plan.' },
+    { text: 'Follow-up required regarding the feedback on the latest product demo.' },
+    { text: 'Scheduled a meeting to go over contract details next Monday.' },
+    { text: 'Client expressed concerns about the pricing structure.' },
+    { text: 'Noted a strong interest in integrating our API with their system.' },
+    { text: 'Customer requested additional documentation on the onboarding process.' },
+    { text: 'Discussed new market trends affecting their business strategy.' },
+    { text: 'Client is happy with the latest update and provided positive feedback.' },
+    { text: 'Reminder: Send a thank-you email for the successful project completion.' },
+];
+
+export const staticDealNotes = [
+    { text: 'Discussed initial contract terms with the client and awaiting their feedback.' },
+    { text: 'Client requested a breakdown of the implementation costs before proceeding.' },
+    { text: 'Follow-up scheduled for next week to finalize the payment structure.' },
+    { text: 'Legal team reviewed the contract, and a few modifications are needed.' },
+    { text: 'Customer expressed interest in an extended support package for post-deployment.' },
+    { text: 'Negotiation on pricing is ongoing, awaiting client’s counteroffer.' },
+    { text: 'Client requested additional case studies to justify ROI expectations.' },
+    { text: 'Confirmed that the project timeline aligns with the client’s internal deadlines.' },
+    { text: 'Sales team provided a customized proposal based on the client’s requirements.' },
+    { text: 'Meeting scheduled with the client’s CEO to finalize the partnership details.' },
 ];
