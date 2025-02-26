@@ -17,8 +17,6 @@ import companies from '../companies';
 import contacts from '../contacts';
 import { Dashboard } from '../dashboard/Dashboard';
 import deals from '../deals';
-import { LoginPage } from '../login/LoginPage';
-import { SignupPage } from '../login/SignupPage';
 import { authProvider, dataProvider } from '../providers/fakerest';
 import sales from '../sales';
 import { SettingsPage } from '../settings/SettingsPage';
@@ -142,16 +140,12 @@ export const CRM = ({
             authProvider={authProvider}
             store={localStorageStore(undefined, 'CRM')}
             layout={Layout}
-            loginPage={LoginPage}
             dashboard={Dashboard}
             theme={lightTheme}
             darkTheme={darkTheme || null}
             i18nProvider={i18nProvider}
             requireAuth
         >
-            <CustomRoutes noLayout>
-                <Route path={SignupPage.path} element={<SignupPage />} />
-            </CustomRoutes>
 
             <CustomRoutes>
                 <Route path={SettingsPage.path} element={<SettingsPage />} />
