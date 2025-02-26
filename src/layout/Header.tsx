@@ -104,7 +104,6 @@ const Header = () => {
                                 <CanAccess resource="sales" action="list">
                                     <UsersMenu />
                                 </CanAccess>
-                                <Logout />
                             </UserMenu>
                         </Box>
                     </Box>

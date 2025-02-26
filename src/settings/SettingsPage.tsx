@@ -169,16 +169,6 @@ const SettingsForm = ({
                         />
                         <TextRender source="email" isEditMode={isEditMode} />
                     </Stack>
-                    {!isEditMode && (
-                        <>
-                            <Button
-                                variant="outlined"
-                                onClick={handleClickOpenPasswordChange}
-                            >
-                                Change password
-                            </Button>
-                        </>
-                    )}
                 </CardContent>
 
                 <CardActions

@@ -13,7 +13,7 @@ export const CompanyEmpty = () => {
                 height: `calc(100dvh - ${appbarHeight}px)`,
             }}
         >
-            <img src="./img/empty.svg" alt="No contacts found" />
+            <img src="'./logos/placeholder.png'" alt="No contacts found" />
             <Stack gap={0} alignItems="center">
                 <Typography variant="h6" fontWeight="bold">
                     No companies found

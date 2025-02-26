@@ -64,7 +64,6 @@ export const authProvider: AuthProvider = {
     getIdentity: () => {
         const userItem = localStorage.getItem(USER_STORAGE_KEY);
         const user = userItem ? (JSON.parse(userItem) as Sale) : null;
-        console.log("user avatar dir is: " + user?.avatar?.src);
         return Promise.resolve({
             id: user?.id ?? 0,
             fullName: user
