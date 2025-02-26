@@ -6,6 +6,7 @@ included data:
 10 deals
 10 contact notes
 10 deal notes
+5 sales
 */
 export const staticContacts = [
     {
@@ -193,4 +194,12 @@ export const staticDealNotes = [
     { text: 'Confirmed that the project timeline aligns with the client’s internal deadlines.' },
     { text: 'Sales team provided a customized proposal based on the client’s requirements.' },
     { text: 'Meeting scheduled with the client’s CEO to finalize the partnership details.' },
+];
+
+export const staticSales = [
+    { first_name: "Alice", last_name: "Johnson", email: "alice.johnson@atomic.dev" },
+    { first_name: "Bob", last_name: "Smith", email: "bob.smith@atomic.dev" },
+    { first_name: "Charlie", last_name: "Brown", email: "charlie.brown@atomic.dev" },
+    { first_name: "David", last_name: "Williams", email: "david.williams@atomic.dev" },
+    { first_name: "Emma", last_name: "Davis", email: "emma.davis@atomic.dev" },
 ];
