@@ -72,7 +72,7 @@ export const DealsChart = () => {
         return amountByMonth;
     }, [data]);
 
-    if (isPending) return null; // FIXME return skeleton instead
+    if (isPending) return null;
     const range = months.reduce(
         (acc, month) => {
             acc.min = Math.min(acc.min, month.lost);

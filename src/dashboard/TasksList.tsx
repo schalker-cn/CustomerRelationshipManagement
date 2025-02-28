@@ -14,7 +14,7 @@ import { TasksListEmpty } from './TasksListEmpty';
 
 const today = new Date();
 const todayDayOfWeek = getDay(today);
-const isBeforeFriday = todayDayOfWeek < 5; // Friday is represented by 5
+const isBeforeFriday = todayDayOfWeek < 5;
 const startOfTodayDateISO = startOfToday().toISOString();
 const endOfTodayDateISO = endOfToday().toISOString();
 const endOfTomorrowDateISO = endOfTomorrow().toISOString();

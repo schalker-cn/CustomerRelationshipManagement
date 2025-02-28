@@ -1,13 +1,3 @@
-/*
-included data:
-8 contacts
-5 companies
-8 tasks
-10 deals
-10 contact notes
-10 deal notes
-5 sales
-*/
 export const staticContacts = [
     {
         first_name: 'John',

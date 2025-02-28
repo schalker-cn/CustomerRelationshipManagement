@@ -12,13 +12,11 @@ export async function hash(string: string) {
     return hashHex;
 }
 
-// Helper function to get the Gravatar URL
 async function getGravatarUrl(email: string): Promise<string> {
     const hashEmail = await hash(email);
     return `https://www.gravatar.com/avatar/${hashEmail}?d=404`;
 }
 
-// Helper function to get the favicon URL
 async function getFaviconUrl(domain: string): Promise<string | null> {
     if (DOMAINS_NOT_SUPPORTING_FAVICON.includes(domain)) {
         return null;
@@ -36,7 +34,6 @@ async function getFaviconUrl(domain: string): Promise<string | null> {
     return null;
 }
 
-// Main function to get the avatar URL
 export async function getContactAvatar(
     record: Partial<Contact>
 ): Promise<string | null> {
@@ -44,7 +41,6 @@ export async function getContactAvatar(
         return null;
     }
 
-    // Step 1: Try to get Gravatar image
     const gravatarUrl = await getGravatarUrl(record.email);
     try {
         const gravatarResponse = await fetch(gravatarUrl);
@@ -52,17 +48,15 @@ export async function getContactAvatar(
             return gravatarUrl;
         }
     } catch (error) {
-        // Gravatar not found
+
     }
 
-    // Step 2: Try to get favicon from email domain
     const domain = record.email.split('@')[1];
     const faviconUrl = await getFaviconUrl(domain);
     if (faviconUrl) {
         return faviconUrl;
     }
 
-    // TODO: Step 3: Try to get image from LinkedIn.
 
     return null;
 }

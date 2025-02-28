@@ -43,7 +43,6 @@ export const generateDeals = (db: Db): Deal[] => {
             index: 0,
         };
     });
-    // compute index based on stage
     defaultDealStages.forEach(stage => {
         deals
             .filter(deal => deal.stage === stage.value)

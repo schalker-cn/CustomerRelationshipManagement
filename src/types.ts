@@ -1,4 +1,3 @@
-// We only import a type from @mui/icons-material, so we safely disable the rule
 // eslint-disable-next-line no-restricted-imports
 import type { SvgIconComponent } from '@mui/icons-material';
 import { Identifier, RaRecord } from 'react-admin';
@@ -34,17 +33,8 @@ export type Sale = {
     disabled?: boolean;
     user_id: string;
 
-    /**
-     * This is a copy of the user's email, to make it easier to handle by react admin
-     * DO NOT UPDATE this field directly, it should be updated by the backend
-     */
     email: string;
 
-    /**
-     * This is used by the fake rest provider to store the password
-     * DO NOT USE this field in your code besides the fake rest provider
-     * @deprecated
-     */
     password?: string;
 } & Pick<RaRecord, 'id'>;
 
@@ -128,7 +118,6 @@ export type DealNote = {
     sales_id: Identifier;
     attachments?: AttachmentNote[];
 
-    // This is defined for compatibility with `ContactNote`
     status?: undefined;
 } & Pick<RaRecord, 'id'>;
 

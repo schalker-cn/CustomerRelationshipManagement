@@ -15,8 +15,6 @@ import {
     DealNote,
 } from '../../types';
 
-// FIXME: Requires 5 large queries to get the latest activities.
-// Replace with a server-side view or a custom API endpoint.
 export async function getActivityLog(
     dataProvider: DataProvider,
     companyId?: Identifier,
@@ -44,11 +42,9 @@ export async function getActivityLog(
         ]);
     return (
         [...newCompanies, ...newContactsAndNotes, ...newDealsAndNotes]
-            // sort by date desc
             .sort((a, b) =>
                 a.date && b.date ? a.date.localeCompare(b.date) * -1 : 0
             )
-            // limit to 250 activities
             .slice(0, 250)
     );
 }
@@ -90,8 +86,6 @@ async function getNewContactsAndNotes(
         recentContactNotesFilter.sales_id = filter.sales_id;
     }
     if (filter.company_id) {
-        // No company_id field in contactNote, filtering by related contacts instead.
-        // This filter is only valid if a company has less than 250 contact.
         const contactIds = contacts.map(contact => contact.id).join(',');
         recentContactNotesFilter['contact_id@in'] = `(${contactIds})`;
     }
@@ -140,8 +134,6 @@ async function getNewDealsAndNotes(
         recentDealNotesFilter.sales_id = filter.sales_id;
     }
     if (filter.company_id) {
-        // No company_id field in dealNote, filtering by related deals instead.
-        // This filter is only valid if a deal has less than 250 notes.
         const dealIds = deals.map(deal => deal.id).join(',');
         recentDealNotesFilter['deal_id@in'] = `(${dealIds})`;
     }

@@ -198,7 +198,6 @@ export const Task = ({
                 </ListItemButton>
             </ListItem>
 
-            {/* This part is for editing the Task directly via a Dialog */}
             <TaskEdit
                 taskId={task.id}
                 open={openEdit}

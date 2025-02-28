@@ -38,7 +38,6 @@ export const DealArchivedList = () => {
 
     if (!identity || isPending || !total || !archivedLists) return null;
 
-    // Group archived lists by date
     const archivedListsByDate: { [date: string]: Deal[] } =
         archivedLists.reduce(
             (acc, deal) => {
@@ -113,7 +112,6 @@ export function getRelativeTimeString(dateString: string): string {
     const diff = date.getTime() - today.getTime();
     const unitDiff = Math.round(diff / (1000 * 60 * 60 * 24));
 
-    // Check if the date is more than one week old
     if (Math.abs(unitDiff) > 7) {
         return new Intl.DateTimeFormat(undefined, {
             day: 'numeric',
@@ -121,7 +119,6 @@ export function getRelativeTimeString(dateString: string): string {
         }).format(date);
     }
 
-    // Intl.RelativeTimeFormat for dates within the last week
     const rtf = new Intl.RelativeTimeFormat(undefined, { numeric: 'auto' });
     return ucFirst(rtf.format(unitDiff, 'day'));
 }

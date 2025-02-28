@@ -29,8 +29,6 @@ export function useContactImport() {
     const user = useGetIdentity();
     const dataProvider = useDataProvider();
 
-    // company cache to avoid creating the same company multiple times and costly roundtrips
-    // Cache is dependent of dataProvider, so it's safe to use it as a dependency
     const companiesCache = useMemo(
         () => new Map<string, Company>(),
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -52,8 +50,6 @@ export function useContactImport() {
         [companiesCache, user?.identity?.id, dataProvider]
     );
 
-    // Tags cache to avoid creating the same tag multiple times and costly roundtrips
-    // Cache is dependent of dataProvider, so it's safe to use it as a dependency
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const tagsCache = useMemo(() => new Map<string, Tag>(), [dataProvider]);
     const getTags = useCallback(
@@ -157,7 +153,6 @@ const fetchRecordsWithCache = async function <T>(
     const trimmedNames = [...new Set(names.map(name => name.trim()))];
     const uncachedRecordNames = trimmedNames.filter(name => !cache.has(name));
 
-    // check the backend for existing records
     if (uncachedRecordNames.length > 0) {
         const response = await dataProvider.getList(resource, {
             filter: {
@@ -171,7 +166,6 @@ const fetchRecordsWithCache = async function <T>(
         }
     }
 
-    // create missing records in parallel
     await Promise.all(
         uncachedRecordNames.map(async name => {
             if (cache.has(name)) return;
@@ -182,7 +176,6 @@ const fetchRecordsWithCache = async function <T>(
         })
     );
 
-    // now all records are in cache, return a map of all records
     return trimmedNames.reduce((acc, name) => {
         acc.set(name, cache.get(name) as T);
         return acc;

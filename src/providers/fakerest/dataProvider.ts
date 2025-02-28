@@ -66,7 +66,6 @@ async function processContactAvatar(
     }
     const avatarUrl = await getContactAvatar(data);
 
-    // Clone the data and modify the clone
     const newData = { ...data, avatar: { src: avatarUrl || undefined } };
 
     return { ...params, data: newData };
@@ -108,14 +107,12 @@ async function fetchAndUpdateCompanyData(
 const dataProviderWithCustomMethod = {
     ...baseDataProvider,
     unarchiveDeal: async (deal: Deal) => {
-        // get all deals where stage is the same as the deal to unarchive
         const { data: deals } = await baseDataProvider.getList<Deal>('deals', {
             filter: { stage: deal.stage },
             pagination: { page: 1, perPage: 1000 },
             sort: { field: 'index', order: 'ASC' },
         });
 
-        // set index for each deal starting from 1, if the deal to unarchive is found, set its index to the last one
         const updatedDeals = deals.map((d, index) => ({
             ...d,
             index: d.id === deal.id ? 0 : index + 1,
@@ -132,7 +129,6 @@ const dataProviderWithCustomMethod = {
             )
         );
     },
-    // We simulate a remote endpoint that is in charge of returning activity log
     getActivityLog: async (companyId?: Identifier) => {
         return getActivityLog(dataProvider, companyId);
     },
@@ -252,15 +248,12 @@ export const dataProvider = withLifecycleCallbacks(
             resource: 'sales',
             beforeCreate: async params => {
                 const { data } = params;
-                // If administrator role is not set, we simply set it to false
                 if (data.administrator == null) {
                     data.administrator = false;
                 }
                 return params;
             },
             afterSave: async data => {
-                // Since the current user is stored in localStorage in fakerest authProvider
-                // we need to update it to keep information up to date in the UI
                 const currentUser = await authProvider.getIdentity?.();
                 if (currentUser?.id === data.id) {
                     localStorage.setItem(
@@ -375,7 +368,6 @@ export const dataProvider = withLifecycleCallbacks(
         {
             resource: 'tasks',
             afterCreate: async (result, dataProvider) => {
-                // update the task count in the related contact
                 const { contact_id } = result.data;
                 const { data: contact } = await dataProvider.getOne(
                     'contacts',
@@ -402,7 +394,6 @@ export const dataProvider = withLifecycleCallbacks(
                 return params;
             },
             afterUpdate: async (result, dataProvider) => {
-                // update the contact: if the task is done, decrement the nb tasks, otherwise increment it
                 const { contact_id } = result.data;
                 const { data: contact } = await dataProvider.getOne(
                     'contacts',
@@ -423,7 +414,6 @@ export const dataProvider = withLifecycleCallbacks(
                 return result;
             },
             afterDelete: async (result, dataProvider) => {
-                // update the task count in the related contact
                 const { contact_id } = result.data;
                 const { data: contact } = await dataProvider.getOne(
                     'contacts',
@@ -456,7 +446,6 @@ export const dataProvider = withLifecycleCallbacks(
                 return await processCompanyLogo(params);
             },
             afterUpdate: async (result, dataProvider) => {
-                // get all contacts of the company and for each contact, update the company_name
                 const { id, name } = result.data;
                 const { data: contacts } = await dataProvider.getList(
                     'contacts',
@@ -514,11 +503,6 @@ export const dataProvider = withLifecycleCallbacks(
     ]
 );
 
-/**
- * Convert a `File` object returned by the upload input into a base 64 string.
- * That's not the most optimized way to store images in production, but it's
- * enough to illustrate the idea of dataprovider decoration.
- */
 const convertFileToBase64 = (file: { rawFile: Blob }) =>
     new Promise((resolve, reject) => {
         const reader = new FileReader();

@@ -45,7 +45,6 @@ export function transformFilter(filter: Record<string, any>) {
             continue;
         }
 
-        // Search query
         if (key.endsWith('@or')) {
             transformedFilters['q'] = transformOrFilter(value);
             continue;

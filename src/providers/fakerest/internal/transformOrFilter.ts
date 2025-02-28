@@ -1,6 +1,5 @@
 import isObject from 'lodash/isObject';
 
-// @or filter is an equivaluent of fakerest `q=`
 export function transformOrFilter(values: any) {
     if (!isObject(values) || Array.isArray(values)) {
         throw new Error(

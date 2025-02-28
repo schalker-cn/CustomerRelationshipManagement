@@ -11,7 +11,6 @@ export const DealEmpty = ({ children }: { children?: React.ReactNode }) => {
     const matchCreate = matchPath('/deals/create', location.pathname);
     const appbarHeight = useAppBarHeight();
 
-    // get Contact data
     const { data: contacts, isPending: contactsLoading } = useGetList<Contact>(
         'contacts',
         {

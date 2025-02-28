@@ -15,7 +15,6 @@ export const TasksIterator = ({
     const { data, error, isPending } = useListContext();
     if (isPending || error || data.length === 0) return null;
 
-    // Keep only tasks that are not done or done less than 5 minutes ago
     const tasks = data.filter(
         task =>
             !task.done_date ||

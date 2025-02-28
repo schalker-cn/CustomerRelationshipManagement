@@ -15,7 +15,6 @@ type Import =
           importCount: number;
           errorCount: number;
 
-          // The remaining time in milliseconds
           remainingTime: number | null;
       }
     | {
@@ -25,10 +24,8 @@ type Import =
       };
 
 type usePapaParseProps<T> = {
-    // The import batch size
     batchSize?: number;
 
-    // processBatch returns the number of imported items
     processBatch(batch: T[]): Promise<void>;
 };
 

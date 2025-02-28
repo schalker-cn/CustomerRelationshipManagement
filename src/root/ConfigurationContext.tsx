@@ -12,7 +12,6 @@ import {
 } from './defaultConfiguration';
 import { ContactGender, DealStage, NoteStatus } from '../types';
 
-// Define types for the context value
 export interface ConfigurationContextValue {
     companySectors: string[];
     dealCategories: string[];
@@ -29,7 +28,6 @@ export interface ConfigurationProviderProps extends ConfigurationContextValue {
     children: ReactNode;
 }
 
-// Create context with default value
 export const ConfigurationContext = createContext<ConfigurationContextValue>({
     companySectors: defaultCompanySectors,
     dealCategories: defaultDealCategories,
