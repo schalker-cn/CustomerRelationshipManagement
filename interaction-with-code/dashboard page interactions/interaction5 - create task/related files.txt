@@ -1,0 +1,29 @@
+public/logos/placeholder.png
+index.html
+package.json
+tsconfig.json
+tsconfig.node.json
+vite.config.ts
+src/index.tsx
+src/App.tsx
+src/types.ts
+src/consts.ts
+src/vite-env.d.ts
+all files in src/root
+all files in src/layout
+all files in src/tasks
+all files in src/dashboard
+all files in src/activity
+all files in src/providers
+src/companies/CompanyAvatar.tsx
+src/sales/SaleName.tsx
+src/misc/RelativeDate.tsx
+src/misc/ContactOption.tsx
+src/misc/DialogCloseButton.tsx
+src/misc/usePapaParse.tsx
+src/contacts/Avatar.tsx
+src/contacts/ContactImportButton.tsx
+src/contacts/ContactImportDialog.tsx
+src/contacts/useContactImport.tsx
+src/contacts/contacts_export.csv
+

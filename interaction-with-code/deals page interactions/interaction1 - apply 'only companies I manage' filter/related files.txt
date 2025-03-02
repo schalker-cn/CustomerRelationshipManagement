@@ -1,0 +1,31 @@
+public/logos/placeholder.png
+index.html
+package.json
+tsconfig.json
+tsconfig.node.json
+vite.config.ts
+src/index.tsx
+src/App.tsx
+src/types.ts
+src/consts.ts
+src/vite-env.d.ts
+src/contacts/Avatar.tsx
+src/misc/DialogCloseButton.tsx
+src/misc/useAppBarHeight.ts
+src/misc/ContactOption.tsx
+src/misc/RelativeDate.tsx
+src/misc/Status.tsx
+src/companies/CompanyAvatar.tsx
+src/sales/SaleName.tsx
+src/notes/Note.tsx
+src/notes/NoteAttachments.tsx
+src/notes/NoteCreate.tsx
+src/notes/NoteInputs.tsx
+src/notes/NotesIterator.tsx
+src/notes/utils.ts
+all files in src/root
+all files in src/layout
+all files in src/providers
+all files in src/deals
+
+

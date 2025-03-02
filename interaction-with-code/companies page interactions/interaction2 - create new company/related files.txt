@@ -1,0 +1,25 @@
+public/logos/placeholder.png
+index.html
+package.json
+tsconfig.json
+tsconfig.node.json
+vite.config.ts
+src/index.tsx
+src/App.tsx
+src/types.ts
+src/consts.ts
+src/vite-env.d.ts
+src/contacts/Avatar.tsx
+src/contacts/TagsList.tsx
+src/deals/deal.ts
+src/misc/useAppBarHeight.ts
+src/misc/isLinkedInUrl.ts
+src/misc/ImageEditorField.tsx
+src/misc/Status.tsx
+all files in src/root
+all files in src/layout
+all files in src/companies
+all files in src/activity
+all files in src/providers
+
+
