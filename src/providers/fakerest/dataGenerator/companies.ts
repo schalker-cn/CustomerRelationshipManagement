@@ -13,7 +13,7 @@ export const generateCompanies = (db: Db): Required<Company>[] => {
         name: company.name,
         logo: {
             title: `${company.name} Logo`,
-            src: `./logos/placeholder.png`,
+            src: `https://placehold.co/1920/0606FC/0606FC?text=1`,
         } as RAFile,
         sector: random.arrayElement(defaultCompanySectors),
         size: random.arrayElement(sizes) as 1 | 10 | 50 | 250 | 500,

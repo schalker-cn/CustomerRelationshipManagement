@@ -29,7 +29,7 @@ export const DealEmpty = ({ children }: { children?: React.ReactNode }) => {
                 height: `calc(100dvh - ${appbarHeight}px)`,
             }}
         >
-            <img src="'./logos/placeholder.png'" alt="No contacts found" />
+            <img src="https://placehold.co/1920/0606FC/0606FC?text=1" alt="No contacts found" />
             {contacts && contacts.length > 0 ? (
                 <>
                     <Stack gap={0} alignItems="center">

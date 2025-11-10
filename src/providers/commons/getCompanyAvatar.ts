@@ -10,7 +10,7 @@ export async function getCompanyAvatar(record: Partial<Company>): Promise<{
     }
 
     return {
-        src: './logos/placeholder.png',
+        src: 'https://placehold.co/1920/0606FC/0606FC?text=1',
         title: 'Company favicon',
     };
 

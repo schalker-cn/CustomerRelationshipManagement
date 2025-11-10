@@ -36,7 +36,7 @@ export const generateContacts = (db: Db): Required<Contact>[] => {
             phone_2_type: random.arrayElement(['Work', 'Home', 'Other']),
             acquisition: random.arrayElement(['inbound', 'outbound']),
             avatar: {
-                src: `./logos/placeholder.png`,
+                src: `https://placehold.co/1920/0606FC/0606FC?text=1`,
             },
             first_seen: first_seen,
             last_seen: last_seen,

@@ -29,7 +29,7 @@ export const generateSales = (_: Db): Sale[] => {
             password: 'demo',
             administrator: true,
             avatar: {
-                src: './logos/placeholder.png',
+                src: 'https://placehold.co/1920/0606FC/0606FC?text=1',
             } as RAFile,
         },
         ...randomSales,
