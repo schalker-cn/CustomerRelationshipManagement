@@ -3,30 +3,18 @@ import path from 'path';
 import fs from 'fs';
 import react from '@vitejs/plugin-react';
 import { visualizer } from 'rollup-plugin-visualizer';
-import preserveDirectives from 'rollup-preserve-directives';
 
 // https://vitejs.dev/config/
 export default defineConfig(async () => {
-    const packages = fs.readdirSync(path.resolve(__dirname, '../../packages'));
-    const aliases: Record<string, string> = {};
-    for (const dirName of packages) {
-        if (dirName === 'create-react-admin') continue;
-        const packageJson = JSON.parse(
-            fs.readFileSync(
-                path.resolve(
-                    __dirname,
-                    '../../packages',
-                    dirName,
-                    'package.json'
-                ),
-                'utf8'
-            )
-        );
-        aliases[packageJson.name] = path.resolve(
-            __dirname,
-            `../../packages/${packageJson.name}/src`
-        );
+  const aliases: Record<string, string> = {}
+
+  const pkgPath = path.resolve(__dirname, './package.json')
+  if (fs.existsSync(pkgPath)) {
+    const packageJson = JSON.parse(fs.readFileSync(pkgPath, 'utf8'))
+    if (packageJson.name) {
+      aliases[packageJson.name] = path.resolve(__dirname, './src')
     }
+  }
     return {
         plugins: [
             react(),
@@ -48,9 +36,6 @@ export default defineConfig(async () => {
         },
         build: {
             sourcemap: true,
-            rollupOptions: {
-                plugins: [preserveDirectives()],
-            },
         },
         resolve: {
             preserveSymlinks: true,
