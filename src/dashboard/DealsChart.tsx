@@ -1,4 +1,3 @@
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import { Box, Stack, Typography } from '@mui/material';
 import { ResponsiveBar } from '@nivo/bar';
 import { format, startOfMonth } from 'date-fns';
@@ -84,9 +83,6 @@ export const DealsChart = () => {
     return (
         <Stack>
             <Box display="flex" alignItems="center" mb={1}>
-                <Box mr={1} display="flex">
-                    <AttachMoneyIcon color="disabled" fontSize="medium" />
-                </Box>
                 <Typography variant="h5" color="textSecondary">
                     Upcoming Deal Revenue
                 </Typography>

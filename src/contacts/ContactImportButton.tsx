@@ -17,7 +17,6 @@ export const ContactImportButton = () => {
     return (
         <>
             <Button
-                startIcon={<UploadIcon />}
                 label="Import"
                 onClick={handleOpenModal}
             />

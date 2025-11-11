@@ -8,11 +8,6 @@ import {
     useGetList,
 } from 'react-admin';
 import { Box, Chip } from '@mui/material';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
-import LocalOfferIcon from '@mui/icons-material/LocalOffer';
-import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
-import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import { endOfYesterday, startOfWeek, startOfMonth, subMonths } from 'date-fns';
 
 import { Status } from '../misc/Status';
@@ -35,7 +30,7 @@ export const ContactListFilter = () => {
                 }}
                 placeholder="Search name, company, etc."
             />
-            <FilterList label="Last activity" icon={<AccessTimeIcon />}>
+            <FilterList label="Last activity" icon={<span />}>
                 <FilterListItem
                     label="Today"
                     value={{
@@ -75,7 +70,7 @@ export const ContactListFilter = () => {
                     }}
                 />
             </FilterList>
-            <FilterList label="Status" icon={<TrendingUpIcon />}>
+            <FilterList label="Status" icon={<span />}>
                 {noteStatuses.map(status => (
                     <FilterListItem
                         key={status.value}
@@ -88,7 +83,7 @@ export const ContactListFilter = () => {
                     />
                 ))}
             </FilterList>
-            <FilterList label="Tags" icon={<LocalOfferIcon />}>
+            <FilterList label="Tags" icon={<span />}>
                 {data &&
                     data.map(record => (
                         <FilterListItem
@@ -108,7 +103,7 @@ export const ContactListFilter = () => {
                         />
                     ))}
             </FilterList>
-            <FilterList label="Tasks" icon={<AssignmentTurnedInIcon />}>
+            <FilterList label="Tasks" icon={<span />}>
                 <FilterListItem
                     label="With pending tasks"
                     value={{ 'nb_tasks@gt': 0 }}
@@ -116,7 +111,7 @@ export const ContactListFilter = () => {
             </FilterList>
             <FilterList
                 label="Account manager"
-                icon={<SupervisorAccountIcon />}
+                icon={<span />}
             >
                 <FilterListItem label="Me" value={{ sales_id: identity?.id }} />
             </FilterList>

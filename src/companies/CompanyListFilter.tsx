@@ -9,7 +9,6 @@ import {
 import { Box } from '@mui/material';
 import BusinessIcon from '@mui/icons-material/Business';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
-import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 
 import { sizes } from './sizes';
 import { useConfigurationContext } from '../root/ConfigurationContext';
@@ -47,7 +46,7 @@ export const CompanyListFilter = () => {
 
             <FilterList
                 label="Account manager"
-                icon={<SupervisorAccountIcon />}
+                icon={<span />}
             >
                 <FilterListItem
                     label="Me"

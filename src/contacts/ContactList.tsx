@@ -74,7 +74,7 @@ const ContactListActions = () => (
     <TopToolbar>
         <SortButton fields={['last_name', 'first_name', 'last_seen']} />
         <ContactImportButton />
-        <ExportButton />
+        <ExportButton icon={false}/>
         <CreateButton
             variant="contained"
             label="New Contact"
